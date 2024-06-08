@@ -34,7 +34,19 @@ const createProducts = async (req, res) => {
         res.status(404).json(error)
     }
 
+}
 
+
+const getProductID = async (req, res, next) => {
+   try {
+        const responseProduct = await Producto.findOne({
+        order: [['createdAt', 'DESC']], // Ordenar por fecha de creación en orden descendente
+    })
+       req.productId = responseProduct.id;
+       next();
+   } catch (error) {
+       res.status(404).json(error)
+   }
 }
 
 
@@ -53,5 +65,6 @@ const getProductos = async (req , res) => {
 module.exports = {
     getProductos,
     findRecentProduct,
-    createProducts
+    createProducts,
+    getProductID
 }

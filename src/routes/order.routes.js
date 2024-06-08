@@ -1,11 +1,12 @@
 const { Router } = require("express")
 const { createOrder, getOrder, getOrdenDetalle } = require("../controllers/order.controllers")
-const { authRequired } = require("../middlewares/validateToken")
+const { authRequired } = require("../middlewares/validateToken");
+const { getProductID } = require("../controllers/productos.controllers");
 
 
 const orderRouter = Router()
 orderRouter.get("/api/v1/orderdetalle/order", authRequired , getOrdenDetalle);
-orderRouter.post("/api/v1/order",  authRequired , createOrder)
+orderRouter.post("/api/v1/order",  authRequired , getProductID, createOrder)
 
 
 module.exports = orderRouter

@@ -92,12 +92,12 @@ const verifyToken = async (req, res) => {
     jwt.verify(token, TOKEN_SECRET, async (error, user) => {
       if (error) return res.sendStatus(401);
   
-      const userFound = await User.findById(user.id);
+      const userFound = await User.findByPk(user.payload.id);
       if (!userFound) return res.sendStatus(401);
   
       return res.json({
-        id: userFound._id,
-        username: userFound.username,
+        id: userFound.id,
+        nombre: userFound.nombre,
         email: userFound.email,
       });
     });

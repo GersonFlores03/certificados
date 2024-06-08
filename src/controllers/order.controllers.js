@@ -57,7 +57,8 @@ const getOrdenDetalle = async (req, res) => {
                model: Producto
             }
 
-         ]
+         ],
+         order: [['createdAt', 'DESC']],
       })
         
       if (responseDetalle.length > 0){
@@ -76,6 +77,7 @@ const createOrder = async (req, res) => {
    try {
         
       const { ruc, fecha, ciudad, direccion, email } = req.body
+      const productId = req.productId;
       
       const newOrden = new Order({
          ruc,
@@ -84,7 +86,7 @@ const createOrder = async (req, res) => {
          direccion,
          email,
          user_id: req.user.id,
-         producto_id: 1
+         producto_id: productId
       })
   
       await newOrden.save()
