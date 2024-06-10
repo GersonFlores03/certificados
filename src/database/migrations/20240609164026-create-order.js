@@ -10,28 +10,44 @@ module.exports = {
         type: Sequelize.INTEGER
       },
 
+      dni: {
+        type: Sequelize.STRING(8),
+        allowNull: false
+      },
+
       ruc: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-
-      fecha: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-
-      ciudad: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-
-      direccion: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(11),
         allowNull: false
       },
 
       email: {
-        type: Sequelize.STRING(254)
+        type: Sequelize.STRING(254),
+        allowNull: false
+      },
+
+      direccion: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+
+      nombre: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+
+      apellido: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+
+      telefono: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+
+      imagen: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
 
       user_id: {
