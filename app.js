@@ -6,7 +6,7 @@ const cookiesParse = require("cookie-parser")
 const authRouter = require("./src/routes/auth.routes")
 const productRouter = require("./src/routes/productos.routes")
 const orderRouter = require("./src/routes/order.routes")
-const orderDetalle = require("./src/routes/orderdetalle.routes")
+const ormHandleRouter = require("./src/routes/erroHandler.routes")
 const path = require('path');
 const FRONTEND_URL = process.env.FRONTEND_URL
 const app = express()
@@ -35,6 +35,8 @@ app.get("/" , (req , res)=> {
 app.use(authRouter)
 app.use(productRouter)
 app.use(orderRouter)
+
+ormHandleRouter(app)
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
   

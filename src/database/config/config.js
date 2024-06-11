@@ -2,7 +2,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": null,
-    "database": "ejemplo",
+    "database": "certificados_bd",
     "port": 3306,
     "host": "localhost",
     "dialect": "mysql"
