@@ -112,7 +112,7 @@ const getOrdenDetalle = async (req, res) => {
 
 
 
-const createOrder = async (req, res) => {
+const createOrder = async (req, res , next) => {
    try {
         
       const { dni , ruc, email,direccion, nombre, apellido ,telefono} = req.body
@@ -146,7 +146,7 @@ const createOrder = async (req, res) => {
       
       res.json(newOrden)
    } catch (error) {
-      res.status(404).json(error) 
+     next(error)
    }
 }
 
