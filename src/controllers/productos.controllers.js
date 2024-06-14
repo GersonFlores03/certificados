@@ -53,7 +53,6 @@ const getProductID = async (req, res, next) => {
 const getProductos = async (req , res) => {
     try {
         const productos = await Producto.findAll()
-        console.log(productos)
         res.status(200).json(productos)
     } catch (error) {
         res.status(404).json(error)

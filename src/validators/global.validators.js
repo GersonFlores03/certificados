@@ -68,7 +68,7 @@ const LoginUsersValidate = [
 
 
 
-const createOrderVentas = [
+const ValidateOrderVentas = [
     check("dni", "Error en el docuemento de identidad")
         .exists()
         .withMessage("El dni debe existir")
@@ -128,11 +128,6 @@ const createOrderVentas = [
         .withMessage("El campo teléfono no debe estar vacio")
         .isLength({ min: 9 })
         .withMessage("El teléfono debe tener un longitud de 9 caracteres"),
-    check("imagen", "Error en el campo imagen")
-        .exists()
-        .withMessage("La imagen importada debe existir")
-        .notEmpty()
-        .withMessage("La importacion del archivo no debe estar vacio"),
     (req, res, next) => {
         validateResult(req, res, next)
     }
@@ -149,5 +144,5 @@ const createOrderVentas = [
 module.exports = {
     RegisterUsersValidate,
     LoginUsersValidate,
-    createOrderVentas
+    ValidateOrderVentas
 }

@@ -4,7 +4,6 @@ const { authRequired } = require("../middlewares/validateToken");
 const { getProductID } = require("../controllers/productos.controllers");
 const multer = require("multer")
 const path = require('path');
-const { createOrderVentas } = require("../validators/global.validators");
 const storage = multer.diskStorage({
     destination: 'uploads/',
     filename: (req, file, cb) => {
@@ -17,8 +16,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const orderRouter = Router()
-orderRouter.get("/api/v1/orderdetalle/order", authRequired , getOrdenDetalle);
-orderRouter.post("/api/v1/order",  authRequired ,  upload.single('imagen'),  createOrderVentas, getProductID,  createOrder)
+orderRouter.get("/api/v1/order", authRequired , getOrdenDetalle);
+orderRouter.post("/api/v1/order",  authRequired ,  upload.single('imagen'),  getProductID,  createOrder)
 
 
 module.exports = orderRouter
