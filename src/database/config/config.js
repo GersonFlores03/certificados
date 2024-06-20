@@ -5,7 +5,7 @@ module.exports = {
     "database": "certificados_bd",
     "port": 3306,
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql" 
   },
   "test": {
     "username": "root",
