@@ -6,6 +6,7 @@ const cookiesParse = require("cookie-parser")
 const authRouter = require("./src/routes/auth.routes")
 const productRouter = require("./src/routes/productos.routes")
 const orderRouter = require("./src/routes/order.routes")
+const correoRouter = require("./src/routes/sendCorreo.routes")
 const ormHandleRouter = require("./src/routes/erroHandler.routes")
 const path = require('path');
 const FRONTEND_URL = process.env.FRONTEND_URL
@@ -21,8 +22,6 @@ app.use(
   );
 
 
-
-
 app.use(express.json())
 app.use(morgan("dev"))
 app.use(cookiesParse())
@@ -35,6 +34,7 @@ app.get("/" , (req , res)=> {
 app.use(authRouter)
 app.use(productRouter)
 app.use(orderRouter)
+app.use(correoRouter)
 
 ormHandleRouter(app)
 

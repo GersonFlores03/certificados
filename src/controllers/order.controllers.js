@@ -51,15 +51,8 @@ const getOrdenDetalle = async (req, res) => {
 const createOrder = async (req, res) => {
    try {
 
-    transmport.sendMail({
-      from: "xdhaber12@gmail.com",
-      to: "xdhaber13@gmail.com", 
-      subject: "Bienvenido al Ecommerce",
-      html: "<h4> Encuentra los mejores producto a los mejores precios </h4>",
-      text: "Encontraras los mejores productos en un a buena calidad"
+  
       
-  })
-        
       const { dni , ruc, email,direccion, nombre, apellido ,telefono} = req.body
       const productId = req.productId;
       const uploadedFilePath = req.file.path;
