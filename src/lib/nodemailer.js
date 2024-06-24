@@ -1,9 +1,9 @@
 const nodemailer = require("nodemailer")
 
-const transport = nodemailer.createTransport({
+let transport = nodemailer.createTransport({
     host: "mail.eyncor.pe",
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
         user: "certificado@eyncor.pe",
         pass: "PROpZ6rFqTyb"
@@ -19,6 +19,10 @@ const transport = nodemailer.createTransport({
 module.exports = transport;
 
 
+
+
+
+
 /*
 const transmport = nodemailer.createTransport({
     host: "mail.eyncor.com",
@@ -32,11 +36,7 @@ const transmport = nodemailer.createTransport({
 
 });
 
-
-
 */
-
-
 
 
 
