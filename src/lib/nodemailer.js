@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer")
 
 let transport = nodemailer.createTransport({
-    host: "mail.eyncor.pe",
+    host: "eyncor.com",
     port: 465,
     secure: true,
     auth: {
@@ -10,7 +10,7 @@ let transport = nodemailer.createTransport({
     },
 
     tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: true
     }
 
 });
@@ -41,7 +41,6 @@ const transmport = nodemailer.createTransport({
 
 
 /*
-
 const transmport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,

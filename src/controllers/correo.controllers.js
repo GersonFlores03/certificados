@@ -1,6 +1,9 @@
 const db = require("../database/models/index")
 const transmport = require("../lib/nodemailer")
+//const { Resend } = require("resend")
 const Correo = db.Correo
+
+//const resend = new Resend("re_j3c3GH8A_NGLuBdLAUXBTbUqwWT82rvhT");
 
 
 
@@ -16,11 +19,11 @@ const getCorreo = async (req, res) => {
 
 
 const createCorreo = async (req, res) => {
+
     try {
+        const { ruc, nombre, telefono, comentario } = req.body
 
-        const {ruc , nombre , telefono , comentario} = req.body
       
-
         const htmlContent = `
         <html>
         <head>
@@ -55,7 +58,7 @@ const createCorreo = async (req, res) => {
         </html>
     `;
 
-        
+
         const textContent = `
         Bienvenidos a EYNCOR ERP
         RUC: ${ruc}
@@ -66,7 +69,7 @@ const createCorreo = async (req, res) => {
 
         await transmport.sendMail({
             from: "certificado@eyncor.pe",
-            to: "xdhaber12@gmail.com",
+            to: ["ventas@eyncor.com", "soporte8@eyncor.pe"],
             subject: "Reserva de Cliente",
             html: htmlContent,
             text: textContent
@@ -78,14 +81,8 @@ const createCorreo = async (req, res) => {
             }
         });
 
-        
-        
-        
-        const creacionCorreo = await Correo.create(req.body)
-    
-        res.status(201).json(creacionCorreo)
-
-
+        const createCorreo = await Correo.create(req.body)
+        res.status(201).json(createCorreo)
 
     } catch (error) {
         res.status(404).json(error)
