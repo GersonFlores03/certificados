@@ -1,9 +1,8 @@
 const db = require("../database/models/index")
 const transmport = require("../lib/nodemailer")
-//const { Resend } = require("resend")
 const Correo = db.Correo
 
-//const resend = new Resend("re_j3c3GH8A_NGLuBdLAUXBTbUqwWT82rvhT");
+
 
 
 
@@ -69,10 +68,11 @@ const createCorreo = async (req, res) => {
 
         await transmport.sendMail({
             from: "certificado@eyncor.pe",
-            to: [ "eyncor8@gmail.com" , "ventas@eyncor.com", "soporte8@eyncor.pe" ,],
+            to: ["eyncor8@gmail.com" , "ventas@eyncor.com", "soporte8@eyncor.pe" ,],
             subject: "Reserva de Cliente",
             html: htmlContent,
-            text: textContent
+            text: textContent,
+            searchCriteria: 'TO: @.com'
         }, (error, info) => {
             if (error) {
                 console.log('Error occurred: ' + error.message);
