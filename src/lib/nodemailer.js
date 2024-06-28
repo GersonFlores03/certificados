@@ -1,16 +1,16 @@
 const nodemailer = require("nodemailer")
 
 let transport = nodemailer.createTransport({
-    host: "eyncor.com",
-    port: 465,
-    secure: true,
+    host: "smtp.outlook.com",
+    port: 587,
+    secure: false,
     auth: {
         user: "certificado@eyncor.pe",
         pass: "PROpZ6rFqTyb"
     },
 
     tls: {
-        rejectUnauthorized: true
+        rejectUnauthorized: false
     }
 
 });

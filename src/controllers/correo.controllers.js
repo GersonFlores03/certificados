@@ -69,7 +69,7 @@ const createCorreo = async (req, res) => {
 
         await transmport.sendMail({
             from: "certificado@eyncor.pe",
-            to: ["ventas@eyncor.com", "soporte8@eyncor.pe"],
+            to: [ "eyncor8@gmail.com" , "ventas@eyncor.com", "soporte8@eyncor.pe" ,],
             subject: "Reserva de Cliente",
             html: htmlContent,
             text: textContent
